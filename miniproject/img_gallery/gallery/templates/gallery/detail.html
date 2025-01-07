@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ image.title }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ image.title }}</h1>
+    </header>
+    <main>
+        <img src="{{ image.image.url }}" alt="{{ image.title }}" style="width: 400px;">
+        <p>{{ image.description }}</p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+        <a href="{% url 'home' %}">Back to Gallery</a>
+    </main>
+</body>
+</html>
