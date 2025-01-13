@@ -1,24 +1,42 @@
+{% extends "gallery/main.html" %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Image Gallery</title>
 </head>
-<body >
+<body >{% block content %}
     <header>
-        <h1>Welcome to the Image Gallery</h1>
+        <center><h1>Welcome to the Image Gallery</h1>&nbsp;&nbsp;&nbsp;<button><a href="http://127.0.0.1:8000/add/"> click add</a></button></center>
+        <hr>
+        <h1>INTRODUCTION </h1>
+        <p>Food is a substance that provides energy and nutritional support to an organism. It can be raw, processed, or formulated, and is consumed orally for pleasure, health, or growth. Food is mainly made up of water, proteins, lipids, and carbohydrates. It can also contain minerals, like salts, and organic substances, like vitamins. 
+            Here are some ways to describe food:
+            Taste
+            Use words like acidic, bitter, full-bodied, rich, or sweet to describe the taste of food. 
+            Texture
+            Use words like airy, chewy, or crunchy to describe the texture of food. 
+            Experience
+            Describe the experience of eating food, like the aroma of freshly baked bread or the golden-brown crust of a baguette. 
+            Storytelling
+            Tell a story about the dish to add depth and dimension to your description. You can talk about how the dish was created, who created it, or why it was made. 
+            When describing food, it's important to be specific and avoid using general words like "good" or "bad". You can also try not to overuse the word "rich" and make sure that all the words you use to describe a dish fit well together.</p>
+        <hr>
     </header>
     <main>
         {% for image in images %}
             <div>
                 <a href="{% url 'detail' image.pk %}">
                     <img src="{{ image.image.url }}" alt="{{ image.title }}" style="width: 200px;">
+                    <p>Food is a substance that provides energy and nutritional support to an organism. It can be raw, processed, or formulated, and is consumed orally for pleasure, health, or growth. Food is mainly made up of water, proteins, lipids, and carbohydrates. It can also contain minerals, like salts, and organic substances, like vitamins. </p>
                 </a>
                 <p>{{ image.title }}</p>
             </div>
         {% endfor %}
     </main>
     <footer>
-        <p>Image Gallery Footer</p>
+        <hr>
+        <p>Image Gallery Footer&nbsp;<h1>THIS IS OUR MENU</h1></p>
     </footer>
+    {% endblock content %}
 </body>
 </html>
